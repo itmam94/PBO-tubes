@@ -1,8 +1,9 @@
 package tubesPBO;
+import java.util.ArrayList;
 
 public class Seller extends Account {
     private String namaToko;
-    private Listing[] produkListing;
+    private ArrayList<Product> produkListing =new ArrayList<Product>();
 
     public Seller(){
 
@@ -16,29 +17,11 @@ public class Seller extends Account {
         return namaToko;   
     }
     
-    public void setProdukListing (Listing[] produkListing){
-        this.produkListing = produkListing;
+    public void addProduct(Product produk){
+        produkListing.add(produk);
     }
     
-    public Listing[] getProdukListing(){
-        return produkListing;
-    }
-    
-    public void addProduct(){
-        int len = this.produkListing.length;
-        int i = 0;
-        
-        while (i < len && produkListing[i] == null){
-            i += 1;
-        } 
-    }
-    
-    public void removeProduct(){
-        int len = this.produkListing.length;
-        int i = 0;
-        
-        while (i < len && produkListing[i] != null){
-            i -= 1;
-        } 
+    public void removeProduct(Product produk){
+        produkListing.remove(produk);
     }
 }
