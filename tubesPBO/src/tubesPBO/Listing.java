@@ -1,7 +1,7 @@
 package tubesPBO;
 
 public class Listing {
-    private Product produk;
+    private Product product = new Product();
     private int quantity, price;
     private String category;
 
@@ -10,7 +10,7 @@ public class Listing {
     }
 
     public void setProduk(Product produk) {
-        this.produk = produk;
+        this.product = produk;
     }
 
     public void setQuantity(int quantity) {
@@ -26,19 +26,18 @@ public class Listing {
     }
 
     public Product getProduk() {
-        return produk;
+        return product;
     }
 
     public int getQuantity() {
         return quantity;
     }
 
-    public getPrice() {
-        return price
+    public int getPrice() {
+        return price;
     }
 
-    public void addProduct(String productName, String description, float weight, float[3] dimension){
-        product = new Product();
+    public void addProduct(String productName, String description, float weight, float[] dimension){
         product.setProductName(productName);
         product.setDescription(description);
         product.setWeight(weight);
@@ -47,7 +46,7 @@ public class Listing {
     }
 
     public void removeProduct(){
-        this.produk = null;
+        this.product = null;
     }
 
     public String getCategory() {

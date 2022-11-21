@@ -21,7 +21,7 @@ public class Product {
         this.weight = weight;
     }
 
-    public void setDimension(float[3] dimension) {
+    public void setDimension(float[] dimension) {
         this.dimension = dimension;
     }
 
@@ -41,15 +41,14 @@ public class Product {
         return dimension;
     }
 
-    public void addProduct(String productName, String description, float weight, float[3] dimension) {
+    public void addProduct(String productName, String description, float weight, float[] dimension) {
         setProductName(productName);
         setDescription(description);
         setWeight(weight);
         setDimension(dimension);
-
     }
 
-    public void editProduct (String productName, String description, float weight, float[3] dimension) {
+    public void editProduct (String productName, String description, float weight, float[] dimension) {
         setProductName(productName);
         setDescription(description);
         setWeight(weight);
