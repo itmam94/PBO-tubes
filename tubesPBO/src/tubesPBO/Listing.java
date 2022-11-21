@@ -1,8 +1,9 @@
 package tubesPBO;
 
 public class Listing {
-    private final Product produk;
-    private int quantity, category;
+    private Product produk;
+    private int quantity, price;
+    private String category;
 
     public Listing(){
 
@@ -12,24 +13,45 @@ public class Listing {
         this.produk = produk;
     }
 
-    public void setCategory(int category) {
-        this.category = category;
-    }
-
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public Product getProduk() {
         return produk;
     }
 
-    public int getCategory() {
-        return category;
-    }
-
     public int getQuantity() {
         return quantity;
+    }
+
+    public getPrice() {
+        return price
+    }
+
+    public void addProduct(String productName, String description, float weight, float[3] dimension){
+        product = new Product();
+        product.setProductName(productName);
+        product.setDescription(description);
+        product.setWeight(weight);
+        product.setDimension(dimension);
+        setProduk(product);
+    }
+
+    public void removeProduct(){
+        this.produk = null;
+    }
+
+    public String getCategory() {
+        return category;
     }
 
     public void addQuantity(int add) {
@@ -38,6 +60,13 @@ public class Listing {
 
     public void removeQuantity(int remove) {
         this.quantity -= remove;
+    }
+
+    public void editListing(Product produk, int quantity, int price, String category){
+        setProduk(produk);
+        setQuantity(quantity);
+        setPrice(price);
+        setCategory(category);
     }
 }
 
