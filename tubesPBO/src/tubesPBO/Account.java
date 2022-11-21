@@ -66,12 +66,28 @@ public class Account {
 		return false;
 	}
 	
-	public void addAddress(Address address) {
+	public void addAddress(String name, String street, String city, String provice, String country, int postalCode) {
+		Address address = new Address(name,street, city, provice, country, postalCode);
 		addressList.add(address);
 	}
 	
-	public void removeAddress(Address address) {
-		addressList.remove(address);
+	public Address findAddress(String name) {
+		for(Address address : addressList) {
+			if(address.getName().equalsIgnoreCase(name)) {
+				return address;
+			}
+		}
+		
+		return null;
+	}
+	
+	public void removeAddress(String name) {
+		Address address = findAddress(name);
+		if(address != null) {
+			addressList.remove(address);
+		} else {
+			System.out.println("Address not found");
+		}
 	}
 	
 	public void printAddress() {
