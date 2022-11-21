@@ -6,7 +6,7 @@ import java.util.List;
 public class Account {
 	
 	private String userID, email, password, name, phoneNumber;
-	private List<Address> addressList =new ArrayList<Address>(); 
+	private List<Address> addressList = new ArrayList<Address>(); 
 	
 	public Account() {
 	}

@@ -5,8 +5,6 @@ public class Buyer extends Account{
     private int creditCard;
 
     public Buyer(){
-        this.paymentMethod = "";
-        this.creditCard = 0;
     }
     
     public void setPaymentMethod (String paymentMethod){

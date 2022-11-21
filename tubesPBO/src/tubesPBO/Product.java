@@ -9,7 +9,15 @@ public class Product {
 
     }
 
-    public void setProductName(String productName) {
+    public Product(String productName, String description, float weight, float[] dimension) {
+		super();
+		this.productName = productName;
+		this.description = description;
+		this.weight = weight;
+		this.dimension = dimension;
+	}
+
+	public void setProductName(String productName) {
         this.productName = productName;
     }
 

@@ -1,12 +1,12 @@
 package tubesPBO;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Seller extends Account {
     private String namaToko;
-    private ArrayList<Product> produkListing =new ArrayList<Product>();
+    private List<Listing> produkListing = new ArrayList<Listing>();
 
     public Seller(){
-
     }
     
     public void setNamaToko (String namaToko){
@@ -17,11 +17,26 @@ public class Seller extends Account {
         return namaToko;   
     }
     
-    public void addProduct(Product produk){
-        produkListing.add(produk);
+    public void addListing(Product product, int quantity, int price, String productName, String category){
+    	Listing listing = new Listing(product, quantity, price, productName, category);
+        produkListing.add(listing);
     }
     
-    public void removeProduct(Product produk){
-        produkListing.remove(produk);
+    public Listing findListing(String productName) {
+    	for(Listing product : produkListing) {
+    		if(product.getProductName().equalsIgnoreCase(productName)) {
+    			return product;
+    		}
+    	}
+    	return null;
+    }
+    
+    public void removeListing(String productName){
+    	Listing product = findListing(productName);
+    	if(product != null) {
+    		produkListing.remove(product);
+    	} else {
+    		System.out.println("This product doesn't exist");
+    	}        
     }
 }

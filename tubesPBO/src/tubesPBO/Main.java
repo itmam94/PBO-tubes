@@ -18,6 +18,12 @@ public class Main {
 		acc.removeAddress("rumah");
 		acc.removeAddress("ruko");
 		acc.printAddress();
+		
+		Buyer buyer = new Buyer();
+		
+		buyer.setName("Juned");
+		
+		System.out.println(buyer.getName());
 	}
 
 }

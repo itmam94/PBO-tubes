@@ -3,13 +3,29 @@ package tubesPBO;
 public class Listing {
     private Product product = new Product();
     private int quantity, price;
-    private String category;
+    private String productName, category;
 
     public Listing(){
-
     }
 
-    public void setProduk(Product produk) {
+    public Listing(Product product, int quantity, int price, String productName, String category) {
+		super();
+		this.product = product;
+		this.quantity = quantity;
+		this.price = price;
+		this.productName = productName;
+		this.category = category;
+	}
+
+	public String getProductName() {
+		return productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+
+	public void setProduk(Product produk) {
         this.product = produk;
     }
 
