@@ -24,6 +24,15 @@ public class Main {
 		buyer.setName("Juned");
 		
 		System.out.println(buyer.getName());
+		
+		
+		Seller seller = new Seller();
+		seller.setName("Joko");
+		
+		double dimension[] = {2, 3.4, 9.8};
+		seller.addListing("Freyon", "Dingin", 1.34, dimension, 5, 100000, "AC");
+		
+		seller.printListing();
 	}
 
 }

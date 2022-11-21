@@ -2,14 +2,14 @@ package tubesPBO;
 
 public class Product {
     private String productName, description;
-    private float weight;
-    private float[] dimension = new float[3]; // {L , W, H}
+    private double weight;
+    private double[] dimension = new double[3]; // {L , W, H}
 
     public Product(){
 
     }
 
-    public Product(String productName, String description, float weight, float[] dimension) {
+    public Product(String productName, String description, double weight, double[] dimension) {
 		super();
 		this.productName = productName;
 		this.description = description;
@@ -25,11 +25,11 @@ public class Product {
         this.description = description;
     }
 
-    public void setWeight(float weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 
-    public void setDimension(float[] dimension) {
+    public void setDimension(double[] dimension) {
         this.dimension = dimension;
     }
 
@@ -41,22 +41,15 @@ public class Product {
         return description;
     }
 
-    public float getWeight() {
+    public double getWeight() {
         return weight;
     }
 
-    public float[] getDimension() {
+    public double[] getDimension() {
         return dimension;
     }
 
-    public void addProduct(String productName, String description, float weight, float[] dimension) {
-        setProductName(productName);
-        setDescription(description);
-        setWeight(weight);
-        setDimension(dimension);
-    }
-
-    public void editProduct (String productName, String description, float weight, float[] dimension) {
+    public void addProduct(String productName, String description, double weight, double[] dimension) {
         setProductName(productName);
         setDescription(description);
         setWeight(weight);

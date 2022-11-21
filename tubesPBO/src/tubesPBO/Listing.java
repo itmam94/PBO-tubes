@@ -53,7 +53,7 @@ public class Listing {
         return price;
     }
 
-    public void addProduct(String productName, String description, float weight, float[] dimension){
+    public void addProduct(String productName, String description, double weight, double[] dimension){
         product.setProductName(productName);
         product.setDescription(description);
         product.setWeight(weight);
