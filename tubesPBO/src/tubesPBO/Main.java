@@ -1,38 +1,40 @@
 package tubesPBO;
 
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
 public class Main {
 
-	public static void main(String[] args) {
-		Account acc = new Account();
-		
-		acc.setName("Itmam");
-		acc.setEmail("itmam@mail.com");
-		acc.setPassword("123");
-		acc.setPhoneNumber("+627383");
-		acc.setUserID("10001");
-		acc.addAddress("Rumah", "Jl gatau no 2", "Jakarta", "DKI Jakarta", "Zimbabwe", 1234);
-		acc.addAddress("Kantor", "Jl kantor no 2", "Depok", "Jawa Barat", "Zimbabwe", 1234);
-		
-		acc.printAddress();
-		
-		acc.removeAddress("rumah");
-		acc.removeAddress("ruko");
-		acc.printAddress();
-		
-		Buyer buyer = new Buyer();
-		
-		buyer.setName("Juned");
-		
-		System.out.println(buyer.getName());
-		
-		
-		Seller seller = new Seller();
-		seller.setName("Joko");
-		
-		double dimension[] = {2, 3.4, 9.8};
-		seller.addListing("Freyon", "Dingin", 1.34, dimension, 5, 100000, "AC");
-		
-		seller.printListing();
-	}
+	 public static void main(String[] args) {
+	        final JFrame frame = new JFrame("Login or Sign Up");
+	        frame.setSize(300, 150);
+	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	        frame.setLayout(new FlowLayout());
 
+	    	final JButton loginButton = new JButton("Login");
+	    	final JButton signupButton = new JButton("Sign Up");
+
+	        frame.add(signupButton);
+	        frame.add(loginButton);
+
+	        ActionListener actionListener = new ActionListener() {
+	            @Override
+	            public void actionPerformed(ActionEvent e) {
+	                if(e.getSource() == loginButton) {
+	                	LoginUI loginUI = new LoginUI();
+	                	//frame.setVisible(false);
+	                }
+	                else if(e.getSource() == signupButton) {
+	                	SignUpUI signupUI = new SignUpUI();
+	                	//frame.setVisible(false);
+	                }
+	            }
+	        };
+
+	        loginButton.addActionListener(actionListener);
+	        signupButton.addActionListener(actionListener);
+
+	        frame.setVisible(true);
+	    }
 }

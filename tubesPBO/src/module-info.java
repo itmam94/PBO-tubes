@@ -5,5 +5,3 @@
  * @author itmam
  *
  */
-module tubesPBO {
-}
