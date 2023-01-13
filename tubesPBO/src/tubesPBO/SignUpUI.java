@@ -17,7 +17,7 @@ public class SignUpUI extends JFrame {
   private JButton signupButton;
   private JButton switchBackButton;
   
-  public SignUpUI(AccountList accountList) {
+  public SignUpUI(final AccountList accountList) {
       this.accountList = new AccountList();
 	  setLayout(new GridBagLayout());
       GridBagConstraints constraints = new GridBagConstraints();
