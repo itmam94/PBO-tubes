@@ -141,7 +141,11 @@ public class SignUpUI extends JFrame {
               @SuppressWarnings("deprecation")
 			String password = passwordField.getText();
               // Perform validation and signup actions here
-              Buyer buyer = new Buyer(name, email, password, street, city, province, country, postcode);
+              if (buyerSellerToggle.getText() == "Buyer") {
+                  Buyer buyer = new Buyer(name, email, password, street, city, province, country, postcode);
+              } else {
+            	  Seller seller = new Seller(name, email, password, street, city, province, country, postcode);
+              }
 
               // Clear the fields after signup
               nameField.setText("");
