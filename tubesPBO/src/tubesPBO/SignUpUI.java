@@ -9,13 +9,16 @@ public class SignUpUI extends JFrame {
   private JLabel nameLabel, emailLabel, streetLabel, cityLabel, provinceLabel, countryLabel, postcodeLabel, passwordLabel, accountTypeLabel;
   private JTextField nameField, emailField, streetField, cityField, provinceField, countryField, postcodeField;
   private JPasswordField passwordField;
+  private AccountList accountList;
+
   
   private JToggleButton buyerSellerToggle;
   
   private JButton signupButton;
   private JButton switchBackButton;
   
-  public SignUpUI() {
+  public SignUpUI(AccountList accountList) {
+      this.accountList = new AccountList();
 	  setLayout(new GridBagLayout());
       GridBagConstraints constraints = new GridBagConstraints();
       constraints.insets = new Insets(5, 5, 5, 5);
@@ -143,8 +146,12 @@ public class SignUpUI extends JFrame {
               // Perform validation and signup actions here
               if (buyerSellerToggle.getText() == "Buyer") {
                   Buyer buyer = new Buyer(name, email, password, street, city, province, country, postcode);
+                  accountList.addAccount(buyer);
+
+
               } else {
             	  Seller seller = new Seller(name, email, password, street, city, province, country, postcode);
+                  accountList.addAccount(seller);
               }
 
               // Clear the fields after signup
@@ -194,9 +201,7 @@ public class SignUpUI extends JFrame {
     setVisible(true);
   }
   
-  private void createAccount(String name, String email, String password) {
-    // TODO: Connect to a database and insert the new account information
-  }
+
 
       
 }
