@@ -3,6 +3,8 @@ package tubesPBO;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import javax.swing.*;
 
@@ -14,7 +16,7 @@ public class SellItemUI extends JFrame {
     private JScrollPane descriptionScroll;
     private JButton sellButton;
 
-    public SellItemUI(Connection con) {
+    public SellItemUI(final Connection con) {
         setLayout(new GridBagLayout());
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.insets = new Insets(5, 5, 5, 5);
@@ -123,8 +125,36 @@ public class SellItemUI extends JFrame {
                 int quantity = Integer.parseInt(quantityField.getText());
                 int price = Integer.parseInt(priceField.getText());
                 String category = categoryField.getText();
-                // code to handle the input data and sell the item
-                // can be added here
+
+             // Create the SQL insert statement
+                String sql = "INSERT INTO product (productName, description, weight, length, width, height) VALUES (?, ?, ?, ?, ?, ?)";
+                PreparedStatement statement;
+				try {
+					statement = con.prepareStatement(sql);
+	                statement.setString(1, productName);
+	                statement.setString(2, description);
+	                statement.setDouble(3, weight);
+	                statement.setDouble(4, dimension[0]);
+	                statement.setDouble(5, dimension[1]);
+	                statement.setDouble(6, dimension[2]);
+
+	                // Execute the statement
+	                statement.executeUpdate();
+	                
+	                productNameField.setText("");
+	                descriptionArea.setText("");
+	                weightField.setText("");
+	                dimensionField1.setText("");
+	                dimensionField2.setText("");
+	                dimensionField3.setText("");
+	                quantityField.setText("");
+	                priceField.setText("");
+	                categoryField.setText("");
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+                
             }
         });
 
