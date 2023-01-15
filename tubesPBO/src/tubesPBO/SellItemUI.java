@@ -127,18 +127,9 @@ public class SellItemUI extends JFrame {
         });
 
         setTitle("Sell Item");
-        setSize(400, 400);
+        setSize(600, 400);
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setVisible(true);
         }
-
-        public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-            SellItemUI ex = new SellItemUI();
-            ex.setVisible(true);
-            }
-        });
-        }
+        
 }

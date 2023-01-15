@@ -3,9 +3,24 @@ package tubesPBO;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import java.sql.*;
 
 public class Main {
 	 public static void main(String[] args) {
+		 
+		 try {
+	            Class.forName("com.mysql.jdbc.Driver");
+	            Connection conn = null;
+	            conn = DriverManager.getConnection("jdbc:mysql://localhost/tubes","root", "root");
+	            System.out.print("Database is connected !");
+	            conn.close();
+	        }
+	        catch(Exception e) {
+	            System.out.print("RAISOOO:"+e);
+	        }
+		 
+		 
+		 
 		 
 		 final AccountList accountList = new AccountList();
 		
@@ -16,9 +31,12 @@ public class Main {
 	     
 	     final JButton loginButton = new JButton("Login");
 	     final JButton signupButton = new JButton("Sign Up");
+	     final JButton sellerUIButton = new JButton("Seller UI");
 	     
 	     frame.add(signupButton);
 	     frame.add(loginButton);
+	     frame.add(sellerUIButton);
+	     
 	     ActionListener actionListener = new ActionListener() {
 	    	 @Override
 	    	 public void actionPerformed(ActionEvent e) {
@@ -28,12 +46,20 @@ public class Main {
 	    		} else if(e.getSource() == signupButton) {
 	    			SignUpUI signupUI = new SignUpUI(accountList);
 	    			//frame.setVisible(false);
+	    		} else if(e.getSource() == sellerUIButton) {
+	    			SellItemUI sellUI = new SellItemUI();
 	    		}
 	    	}
 	    };
 	    
 	    loginButton.addActionListener(actionListener);
 	    signupButton.addActionListener(actionListener);
+	    sellerUIButton.addActionListener(actionListener);
 	    frame.setVisible(true);
+	}
+
+	private static void DatabaseConnection() {
+		// TODO Auto-generated method stub
+		
 	}
 }
