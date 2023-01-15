@@ -22,7 +22,7 @@ public class Main {
 		 
 		 
 		 
-		 final AccountList accountList = new AccountList();
+		 //final AccountList accountList = new AccountList();
 		
 	     final JFrame frame = new JFrame("Login or Sign Up");
 	     frame.setSize(300, 150);
@@ -44,7 +44,7 @@ public class Main {
 	    			 LoginUI loginUI = new LoginUI();
 	    			 //frame.setVisible(false);
 	    		} else if(e.getSource() == signupButton) {
-	    			SignUpUI signupUI = new SignUpUI(accountList);
+	    			//SignUpUI signupUI = new SignUpUI(accountList);
 	    			//frame.setVisible(false);
 	    		} else if(e.getSource() == sellerUIButton) {
 	    			SellItemUI sellUI = new SellItemUI();

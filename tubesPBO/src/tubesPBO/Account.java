@@ -5,26 +5,25 @@ import java.util.List;
 
 public class Account {
 	
-	private String userID, email, password, name, phoneNumber;
+	private String email, password, name, phoneNumber;
 	private List<Address> addressList = new ArrayList<Address>(); 
 	
-	public Account() {
+	//Tambahin parameter constructor
+	public Account(String email, String password, String name, String phoneNumber) {
+		this.name = name;
+		this.email = email;
+		this.password = password;
+		this.phoneNumber = phoneNumber;
 	}
 	
+	/* 
 	public void register(String email, String password, String name, String phoneNumber) {
 		setEmail(email);
 		setPassword(password);
 		setName(name);
 		setPhoneNumber(phoneNumber);
 	}
-	
-	public String getUserID() {
-		return userID;
-	}
-
-	public void setUserID(String userID) {
-		this.userID = userID;
-	}
+	*/
 
 	public String getEmail() {
 		return email;
@@ -66,36 +65,9 @@ public class Account {
 		return false;
 	}
 	
-	public void addAddress(String name, String street, String city, String provice, String country, int postalCode) {
-		Address address = new Address(name,street, city, provice, country, postalCode);
+	//typo
+	public void addAddress(String street, String city, String province, String country, int postalCode) {
+		Address address = new Address(street, city, province, country, postalCode);
 		addressList.add(address);
 	}
-	
-	public Address findAddress(String name) {
-		for(Address address : addressList) {
-			if(address.getName().equalsIgnoreCase(name)) {
-				return address;
-			}
-		}
-		
-		return null;
-	}
-	
-	public void removeAddress(String name) {
-		Address address = findAddress(name);
-		if(address != null) {
-			addressList.remove(address);
-		} else {
-			System.out.println("Address not found");
-		}
-	}
-	
-	public void printAddress() {
-		for (Address address : addressList) {
-			System.out.println(address.getName() + ": " + address.getStreet() + " " +
-		address.getCity() + " " + address.getProvice() + " " + address.getPostalCode() +
-		" " + address.getCountry());
-		}
-	}
-
 }

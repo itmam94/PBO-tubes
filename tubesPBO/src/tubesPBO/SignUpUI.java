@@ -9,7 +9,7 @@ public class SignUpUI extends JFrame {
   private JLabel nameLabel, emailLabel, streetLabel, cityLabel, provinceLabel, countryLabel, postcodeLabel, passwordLabel, accountTypeLabel;
   private JTextField nameField, emailField, streetField, cityField, provinceField, countryField, postcodeField;
   private JPasswordField passwordField;
-  private AccountList accountList;
+  //private AccountList accountList;
 
   
   private JToggleButton buyerSellerToggle;
@@ -18,7 +18,7 @@ public class SignUpUI extends JFrame {
   private JButton switchBackButton;
   
   public SignUpUI(final AccountList accountList) {
-      this.accountList = new AccountList();
+      //this.accountList = new AccountList();
 	  setLayout(new GridBagLayout());
       GridBagConstraints constraints = new GridBagConstraints();
       constraints.insets = new Insets(5, 5, 5, 5);
@@ -150,7 +150,7 @@ public class SignUpUI extends JFrame {
 
 
               } else {
-            	  Seller seller = new Seller(name, email, password, street, city, province, country, postcode);
+            	  //Seller seller = new Seller(name, email, password, street, city, province, country, postcode);
                   accountList.addAccount(seller);
               }
 
@@ -183,6 +183,8 @@ public class SignUpUI extends JFrame {
 	});
     add(switchBackButton);
     
+
+    // back button
     ActionListener actionListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -199,9 +201,6 @@ public class SignUpUI extends JFrame {
     
     // Show the frame
     setVisible(true);
+
   }
-  
-
-
-      
 }

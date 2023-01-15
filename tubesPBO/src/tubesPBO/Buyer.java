@@ -4,8 +4,8 @@ public class Buyer extends Account{
     private String paymentMethod;
     private int creditCard;
 
-    public Buyer(String name, String email, String password, String street, String city, String provice, String country, String postalCode){
-    	super();
+    public Buyer(String name, String email, String password, String phoneNumber){
+    	super(email, password, name, phoneNumber);
     }
     
     public void setPaymentMethod (String paymentMethod){

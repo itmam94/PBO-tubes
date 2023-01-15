@@ -2,28 +2,19 @@ package tubesPBO;
 
 public class Address {
 	
-	private String name, street, city, provice, country;
+	private String street, city, province, country;
 	private int postalCode;
 	
 	public Address() {
 	}
 
-	public Address(String name, String street, String city, String provice, String country, int postalCode) {
+	public Address( String street, String city, String province, String country, int postalCode) {
 		super();
-		this.name = name;
 		this.street = street;
 		this.city = city;
-		this.provice = provice;
+		this.province = province;
 		this.country = country;
 		this.postalCode = postalCode;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public String getStreet() {
@@ -42,12 +33,12 @@ public class Address {
 		this.city = city;
 	}
 
-	public String getProvice() {
-		return provice;
+	public String getProvince() {
+		return province;
 	}
 
-	public void setProvice(String provice) {
-		this.provice = provice;
+	public void setProvince(String province) {
+		this.province = province;
 	}
 
 	public String getCountry() {
@@ -65,5 +56,4 @@ public class Address {
 	public void setPostalCode(int postalCode) {
 		this.postalCode = postalCode;
 	}
-
 }

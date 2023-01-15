@@ -6,8 +6,9 @@ public class Seller extends Account {
     private String namaToko;
     private List<Listing> listingList = new ArrayList<Listing>();
 
-    public Seller(String name, String email, String password, String street, String city, String provice, String country, String postalCode){
-    	super();
+    public Seller(String name, String email, String password, String phoneNumber, String namaToko){
+    	super(name, email, password, phoneNumber);
+		this.namaToko = namaToko;
     }
     
     public void setNamaToko (String namaToko){
