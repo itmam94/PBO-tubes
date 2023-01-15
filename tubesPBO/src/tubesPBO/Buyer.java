@@ -2,9 +2,9 @@ package tubesPBO;
 
 public class Buyer extends Account{
     private String paymentMethod;
-    private int creditCard;
+    private int creditCard, phoneNumber;
 
-    public Buyer(String name, String email, String password, String street, String city, String provice, String country, String postalCode){
+    public Buyer(String name, String email, String password, String phoneNumber, String street, String city, String provice, String country, String postalCode){
     	super();
     }
     

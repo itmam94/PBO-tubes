@@ -2,6 +2,8 @@ package tubesPBO;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.Connection;
+
 import javax.swing.*;
 
 public class SellItemUI extends JFrame {
@@ -12,7 +14,7 @@ public class SellItemUI extends JFrame {
     private JScrollPane descriptionScroll;
     private JButton sellButton;
 
-    public SellItemUI() {
+    public SellItemUI(Connection con) {
         setLayout(new GridBagLayout());
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.insets = new Insets(5, 5, 5, 5);

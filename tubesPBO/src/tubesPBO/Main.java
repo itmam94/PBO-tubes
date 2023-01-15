@@ -6,21 +6,19 @@ import javax.swing.*;
 import java.sql.*;
 
 public class Main {
+	 
+	 static Connection con = null;
+	 
 	 public static void main(String[] args) {
 		 
 		 try {
 	            Class.forName("com.mysql.jdbc.Driver");
-	            Connection conn = null;
-	            conn = DriverManager.getConnection("jdbc:mysql://localhost/tubes","root", "root");
+	            con = DriverManager.getConnection("jdbc:mysql://localhost/tubes","root", "root");
 	            System.out.print("Database is connected !");
-	            conn.close();
 	        }
 	        catch(Exception e) {
 	            System.out.print("RAISOOO:"+e);
 	        }
-		 
-		 
-		 
 		 
 		 final AccountList accountList = new AccountList();
 		
@@ -44,10 +42,10 @@ public class Main {
 	    			 LoginUI loginUI = new LoginUI();
 	    			 //frame.setVisible(false);
 	    		} else if(e.getSource() == signupButton) {
-	    			SignUpUI signupUI = new SignUpUI(accountList);
+	    			SignUpUI signupUI = new SignUpUI(con);
 	    			//frame.setVisible(false);
 	    		} else if(e.getSource() == sellerUIButton) {
-	    			SellItemUI sellUI = new SellItemUI();
+	    			SellItemUI sellUI = new SellItemUI(con);
 	    		}
 	    	}
 	    };
