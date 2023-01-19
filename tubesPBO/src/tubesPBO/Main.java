@@ -8,59 +8,68 @@ import java.sql.*;
 public class Main {
 	 
 	 static Connection con = null;
+	 static final JFrame frame = new JFrame("Main Menu");
 	 
 	 public static void main(String[] args) {
-		 
-		 try {
-	            Class.forName("com.mysql.jdbc.Driver");
-	            con = DriverManager.getConnection("jdbc:mysql://localhost/tubes","root", "root");
-	            System.out.print("Database is connected !");
-	        }
-	        catch(Exception e) {
-	            System.out.print("RAISOOO:"+e);
-	        }
-		 
-		 
-		 
-		 
-		 //final AccountList accountList = new AccountList();
 		
-	     final JFrame frame = new JFrame("Login or Sign Up");
-	     frame.setSize(300, 150);
+		if (con == null) { 
+		 	try {
+	            Class.forName("com.mysql.cj.jdbc.Driver");
+				// ganti password 
+	            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/tubes","root", "root");
+	            System.out.print("Database is connected !");
+	        } catch(Exception e) {
+	            System.out.print("Error:"+e);
+	        }
+		}
+		
+		 //frame.setVisible(true); 
+		 frame.setSize(350, 75);
 	     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	     frame.setLayout(new FlowLayout());
-	     
-	     final JButton loginButton = new JButton("Login");
+		 frame.setLayout(new FlowLayout());
+
+		 final JButton loginButton = new JButton("Login");
+		 // not working
 	     final JButton signupButton = new JButton("Sign Up");
-	     final JButton sellerUIButton = new JButton("Seller UI");
-	     
-	     frame.add(signupButton);
+		 // should be after log in successful
+		 // to be removed 
+		 final JButton loggedSellerBtn = new JButton("Seller");
+		 final JButton loggedBuyerBtn = new JButton("Buyer");
+
+
 	     frame.add(loginButton);
-	     frame.add(sellerUIButton);
+		 frame.add(signupButton);
+		 // to b moved
+		 frame.add(loggedSellerBtn);
+		 frame.add(loggedBuyerBtn);
 	     
 	     ActionListener actionListener = new ActionListener() {
 	    	 @Override
 	    	 public void actionPerformed(ActionEvent e) {
 	    		 if(e.getSource() == loginButton) {
-	    			 LoginUI loginUI = new LoginUI();
-	    			 //frame.setVisible(false);
+					LoginUI loginUI = new LoginUI(con);					
+					frame.dispose();
 	    		} else if(e.getSource() == signupButton) {
 	    			SignUpUI signupUI = new SignUpUI(con);
-	    			//frame.setVisible(false);
-	    		} else if(e.getSource() == sellerUIButton) {
-	    			SellItemUI sellUI = new SellItemUI(con);
+					frame.dispose();
+	    		} else if(e.getSource() == loggedSellerBtn) {
+	    			LoggedSellerUI loggedSeller = new LoggedSellerUI(con);
+					frame.dispose();
+	    		} else if(e.getSource() == loggedBuyerBtn) {
+	    			BuyerUI loggedBuyer = new BuyerUI(con);
+					frame.dispose();
 	    		}
 	    	}
 	    };
 	    
 	    loginButton.addActionListener(actionListener);
 	    signupButton.addActionListener(actionListener);
-	    sellerUIButton.addActionListener(actionListener);
-	    frame.setVisible(true);
+		loggedSellerBtn.addActionListener(actionListener);
+		loggedBuyerBtn.addActionListener(actionListener);
+		frame.setVisible(true);
 	}
 
 	private static void DatabaseConnection() {
 		// TODO Auto-generated method stub
-		
 	}
 }
